@@ -1,0 +1,342 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #0f62fe 0%, #78a9ff 50%, #8a3ffc 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.card {
+  background: #ffffff;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease;
+}
+
+/* Banner Header Picture */
+.card-banner {
+  height: 120px;
+  background-image: url('https://images.unsplash.com/photo-1534088568595-a066f410bcda?auto=format&fit=crop&w=800&q=80');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  transition: background-image 0.5s ease-in-out;
+}
+
+.banner-overlay {
+  background: linear-gradient(to bottom, rgba(15, 98, 254, 0.75), rgba(15, 98, 254, 0.95));
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.banner-overlay h2 {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.banner-overlay .subtitle {
+  font-size: 12px;
+  opacity: 0.9;
+  font-weight: 300;
+}
+
+/* Card Body */
+.card-body {
+  padding: 22px;
+}
+
+/* Search Area */
+.search {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.input-wrapper {
+  position: relative;
+  flex: 1;
+}
+
+.search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #0f62fe;
+  font-size: 14px;
+}
+
+.search input {
+  width: 100%;
+  padding: 12px 14px 12px 38px;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 12px;
+  outline: none;
+  font-size: 13.5px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search input:focus {
+  border-color: #0f62fe;
+  box-shadow: 0 0 0 3px rgba(15, 98, 254, 0.15);
+}
+
+.search button {
+  padding: 12px 18px;
+  background: #0f62fe;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13.5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.search button:hover {
+  background: #0353e9;
+}
+
+.search button:active {
+  transform: scale(0.97);
+}
+
+/* Error Alert */
+.error {
+  color: #da1e28;
+  background: #fff0f1;
+  border: 1px solid #ffd7d9;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  margin-bottom: 15px;
+  display: none;
+  text-align: center;
+}
+
+/* Weather Box */
+.weather {
+  background: linear-gradient(180deg, #f4f7fe 0%, #eef3fc 100%);
+  border-radius: 16px;
+  padding: 18px;
+  border: 1px solid #e1e9f8;
+  display: none;
+  animation: fadeIn 0.4s ease;
+}
+
+.weather.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.weather-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.weather-icon-wrapper img {
+  width: 75px;
+  height: 75px;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+}
+
+.temp {
+  font-size: 38px;
+  font-weight: 700;
+  color: #0f62fe;
+  line-height: 1;
+}
+
+.city {
+  font-size: 17px;
+  font-weight: 600;
+  color: #161616;
+  margin-top: 4px;
+}
+
+.desc-badge {
+  display: inline-block;
+  background: #0f62fe;
+  color: white;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: capitalize;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-top: 6px;
+}
+
+/* Details Grid */
+.details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 15px;
+  border-top: 1px dashed #d0dbe9;
+  padding-top: 14px;
+}
+
+.detail-box {
+  background: white;
+  padding: 10px 8px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.detail-box i {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.icon-humidity { color: #0043ce; }
+.icon-wind { color: #1192e8; }
+.icon-feels { color: #fa4d56; }
+
+.detail-box b {
+  font-size: 13px;
+  color: #161616;
+  display: block;
+}
+
+.detail-box span {
+  font-size: 10.5px;
+  color: #6f6f6f;
+}
+
+/* History Section */
+#history {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1.5px solid #f0f0f0;
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+#history h3 {
+  font-size: 14px;
+  color: #393939;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#history h3 i {
+  color: #0f62fe;
+}
+
+#clearBtn {
+  background: transparent;
+  border: none;
+  color: #da1e28;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+#clearBtn:hover {
+  background: #fff0f1;
+}
+
+#historyList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#historyList li {
+  background: #f9fafe;
+  padding: 9px 12px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12.5px;
+  border: 1px solid #e8eeef;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#historyList li:hover {
+  background: #edf5ff;
+  border-color: #0f62fe;
+  transform: translateX(3px);
+}
+
+.history-city {
+  font-weight: 600;
+  color: #161616;
+}
+
+.history-details {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.history-temp {
+  font-weight: 700;
+  color: #0f62fe;
+  background: #e5f1ff;
+  padding: 2px 7px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.history-time {
+  color: #8d8d8d;
+  font-size: 10.5px;
+}
+
+.empty-history {
+  color: #8d8d8d;
+  font-size: 12.5px;
+  text-align: center;
+  padding: 8px 0;
+  font-style: italic;
+}

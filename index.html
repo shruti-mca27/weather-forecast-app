@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weather Forecast App</title>
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- FontAwesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="card">
+  <!-- Top Banner / Picture Header -->
+  <div class="card-banner" id="bannerImg">
+    <div class="banner-overlay">
+      <h2>🌤️ Weather Forecast</h2>
+      <p class="subtitle">Live Global Weather Updates</p>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <!-- Search Box -->
+    <div class="search">
+      <div class="input-wrapper">
+        <i class="fa-solid fa-location-dot search-icon"></i>
+        <input type="text" id="cityInput" placeholder="Enter city (e.g. Patna, Delhi, London)...">
+      </div>
+      <button onclick="getWeather()">
+        <i class="fa-solid fa-magnifying-glass"></i> Search
+      </button>
+    </div>
+
+    <!-- Error Message -->
+    <p class="error" id="error"></p>
+
+    <!-- Weather Display Card -->
+    <div class="weather" id="weatherBox">
+      <!-- Main Weather Info with Image Icon -->
+      <div class="weather-main">
+        <div class="weather-icon-wrapper">
+          <img id="weatherIcon" src="https://openweathermap.org/img/wn/10d@2x.png" alt="Weather Condition">
+        </div>
+        <div>
+          <div class="temp" id="temp">--°C</div>
+          <div class="city" id="cityName">--</div>
+          <div class="desc-badge" id="desc">--</div>
+        </div>
+      </div>
+
+      <!-- Extra Details Grid -->
+      <div class="details">
+        <div class="detail-box">
+          <i class="fa-solid fa-droplet icon-humidity"></i>
+          <div>
+            <b id="humidity">--%</b>
+            <span>Humidity</span>
+          </div>
+        </div>
+        <div class="detail-box">
+          <i class="fa-solid fa-wind icon-wind"></i>
+          <div>
+            <b id="wind">-- m/s</b>
+            <span>Wind Speed</span>
+          </div>
+        </div>
+        <div class="detail-box">
+          <i class="fa-solid fa-temperature-three-quarters icon-feels"></i>
+          <div>
+            <b id="feelsLike">--°C</b>
+            <span>Feels Like</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- History Section -->
+    <div id="history">
+      <div class="history-header">
+        <h3><i class="fa-solid fa-clock-rotate-left"></i> Recent Searches</h3>
+        <button id="clearBtn" onclick="clearHistory()"><i class="fa-solid fa-trash-can"></i> Clear</button>
+      </div>
+      <ul id="historyList"></ul>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
